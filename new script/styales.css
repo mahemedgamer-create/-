@@ -1,0 +1,115 @@
+/* تصميم مريح للعين: تباين معتدل، مساحات أوسع، أحجام أكبر، وحركات مخففة */
+
+:root{
+  --bg-1: #0b1117;
+  --bg-2: #0f1a26;
+  --card: rgba(255,255,255,0.03);
+  --card-border: rgba(255,255,255,0.04);
+  --accent: #6ed3d9; /* أقل سطوع */
+  --text: #dceff6;
+  --muted: #9fb6c5;
+  --glass-blur: 8px;
+  --radius: 14px;
+  --gap: 14px;
+  --shadow: 0 10px 30px rgba(3,8,18,0.6);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", "Helvetica Neue", Arial;
+  background: linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 100%);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+  line-height:1.4;
+}
+
+/* البطاقة الرئيسية */
+.card{
+  width:100%;
+  max-width:520px; /* أعرض قليلاً على الشاشات */
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border:1px solid var(--card-border);
+  padding:28px;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  backdrop-filter: blur(var(--glass-blur));
+}
+
+/* ملف التعريف */
+.profile{display:flex;align-items:center;gap:16px;margin-bottom:18px}
+.avatar{
+  width:64px;height:64px;border-radius:12px;
+  background:linear-gradient(135deg,var(--accent),#7c3aed);
+  display:flex;align-items:center;justify-content:center;font-weight:700;color:#001;
+  font-size:22px;box-shadow:0 8px 30px rgba(6,11,22,0.6)
+}
+h1{margin:0;font-size:20px;letter-spacing:0.2px}
+p.desc{margin:4px 0 0;color:var(--muted);font-size:14px}
+
+/* قائمة الروابط */
+.links{display:grid;gap:12px}
+.link{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:12px 14px;background:var(--card);
+  border-radius:10px;border:1px solid var(--card-border);
+  transition:transform .12s ease, box-shadow .12s ease, background .12s ease;
+  gap:12px;
+}
+.link:focus-within, .link:hover{
+  transform:translateY(-4px);
+  box-shadow:0 18px 40px rgba(2,6,23,0.45);
+  border-color: rgba(110,211,217,0.16);
+}
+
+/* الجزء الأيسر في كل رابط */
+.meta{display:flex;align-items:center;gap:12px}
+.icon{
+  width:44px;height:44px;border-radius:10px;background:rgba(4,18,38,0.6);
+  display:flex;align-items:center;justify-content:center;font-size:20px;
+  color:var(--accent);
+}
+.label{font-size:15px}
+.small{font-size:13px;color:var(--muted)}
+
+/* الأزرار والروابط */
+.actions{display:flex;gap:10px;align-items:center}
+button.copy, a.open{
+  background:transparent;border:1px solid rgba(255,255,255,0.06);
+  color:var(--text);padding:8px 12px;border-radius:10px;cursor:pointer;font-size:14px;text-decoration:none;
+  transition:all .12s ease;
+}
+button.copy:hover,a.open:hover{
+  border-color:var(--accent);color:var(--accent);
+  transform:translateY(-2px);
+}
+button.copy:active,a.open:active{transform:translateY(0)}
+
+/* تباينات للتركيز (لوحة مفاتيح) */
+button.copy:focus-visible, a.open:focus-visible{
+  outline:3px solid rgba(110,211,217,0.18);
+  outline-offset:3px;
+  border-radius:10px;
+}
+
+/* تجاوب الهواتف */
+@media (max-width:480px){
+  .card{padding:18px}
+  .avatar{width:54px;height:54px;font-size:20px}
+  .icon{width:40px;height:40px;font-size:18px}
+  .link{padding:10px}
+  button.copy, a.open{padding:8px 10px;font-size:13px}
+}
+
+/* تقليل الحركة للذين يفضلون ذلك */
+@media (prefers-reduced-motion: reduce){
+  .link, button.copy, a.open{transition:none}
+  .link:hover{transform:none;box-shadow:none}
+}

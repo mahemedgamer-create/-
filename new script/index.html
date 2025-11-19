@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>صفحة حساباتي</title>
+    <!-- ربط ملف الستايل الخارجي -->
+    <link rel="stylesheet" href="styales.css">
+</head>
+<body>
+    <!-- الفيديو أُلغي — الخلفية الآن لون/تدرّج ثابت -->
+
+    <main class="card" role="main">
+        <div class="profile">
+            <div class="avatar">أ</div>
+            <div>
+                <h1>حسابات محمد العازمي</h1>
+                <p class="desc">طب وتخير بحساباتي.</p>
+            </div>
+        </div>
+
+        <div class="links" id="links">
+            <!-- رابط تويتر -->
+            <div class="link" data-url="https://x.com/AzmyMhmd99187">
+                <div class="meta">
+                    <div class="icon">🐦</div>
+                    <div>
+                        <div class="label">تويتر</div>
+                        <div class="small">محمد العازمي</div>
+                    </div>
+                </div>
+                <div class="actions">
+                    <a class="open" target="_blank" rel="noopener" href="https://x.com/AzmyMhmd99187">افتح</a>
+                    <button class="copy" data-copy="https://x.com/AzmyMhmd99187">انسخ</button>
+                </div>
+            </div>
+
+            <!-- رابط انستجرام -->
+            <div class="link" data-url="https://www.instagram.com/alazme2025/">
+                <div class="meta">
+                    <div class="icon">📸</div>
+                    <div>
+                        <div class="label">انستجرام</div>
+                        <div class="small">محمد العازمي</div>
+                    </div>
+                </div>
+                <div class="actions">
+                    <a class="open" target="_blank" rel="noopener" href="https://www.instagram.com/alazme2025/">افتح</a>
+                    <button class="copy" data-copy="https://www.instagram.com/alazme2025/">انسخ</button>
+                </div>
+            </div>
+
+            <!-- تيك توك -->
+            <div class="link" data-url="https://www.tiktok.com/@.14.ma">
+                <div class="meta">
+                    <div class="icon">🎵</div>
+                    <div>
+                        <div class="label">تيك توك</div>
+                        <div class="small">محمد العازمي 🇰🇼</div>
+                    </div>
+                </div>
+                <div class="actions">
+                    <a class="open" target="_blank" rel="noopener" href="https://www.tiktok.com/@.14.ma">افتح</a>
+                    <button class="copy" data-copy="https://www.tiktok.com/@.14.ma">انسخ</button>
+                </div>
+            </div>
+
+            <!-- سناب -->
+            <div class="link" data-url="https://www.snapchat.com/add/your_username">
+                <div class="meta">
+                    <div class="icon">👻</div>
+                    <div>
+                        <div class="label">سناب</div>
+                        <div class="small">محمد العازمي</div>
+                    </div>
+                </div>
+                <div class="actions">
+                    <a class="open" target="_blank" rel="noopener" href="https://www.snapchat.com/@kihg4972?sender_web_id=edece392-f691-4f13-a807-ca0742d53d80&device_type=desktop&is_copy_url=true">افتح</a>
+                    <button class="copy" data-copy="https://www.snapchat.com/@kihg4972?sender_web_id=edece392-f691-4f13-a807-ca0742d53d80&device_type=desktop&is_copy_url=true">انسخ</button>
+                </div>
+            </div>
+
+            <!-- ديسكورد -->
+            <div class="link" data-url="https://discord.gg/RT-RP">
+                <div class="meta">
+                    <div class="icon">💬</div>
+                    <div>
+                        <div class="label">ديسكوردCFW</div>
+                        <div class="small">Perfect CFW</div>
+                    </div>
+                </div>
+                <div class="actions">
+                    <a class="open" target="_blank" rel="noopener" href="https://discord.gg/RT-RP">افتح</a>
+                    <button class="copy" data-copy="https://discord.gg/RT-RP">انسخ</button>
+                </div>
+            </div>
+
+            <!-- ديسكورد إضافي -->
+            <div class="link" data-url="https://discord.gg/YewrYmRpAf">
+                <div class="meta">
+                    <div class="icon">💬</div>
+                    <div>
+                        <div class="label">ديسكورد 𝐂𝐨𝐦𝐦𝐮𝐧𝐢𝐭𝐲</div>
+                        <div class="small">𝐒.𝐌 𝐂𝐨𝐦𝐦𝐮𝐧𝐢𝐭𝐲</div>
+                    </div>
+                </div>
+                <div class="actions">
+                    <a class="open" target="_blank" rel="noopener" href="https://discord.gg/YewrYmRpAf">افتح</a>
+                    <button class="copy" data-copy="hhttps://discord.gg/YewrYmRpAf">انسخ</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // نسخ الرابط للحافظة
+        document.querySelectorAll('button.copy').forEach(btn=>{
+            btn.addEventListener('click', async ()=>{
+                try {
+                    await navigator.clipboard.writeText(btn.getAttribute('data-copy'));
+                    const prev = btn.textContent;
+                    btn.textContent = 'تم النسخ';
+                    setTimeout(()=> btn.textContent = prev,1200);
+                } catch(e){
+                    alert('فشل النسخ — انسخ يدوياً.');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
